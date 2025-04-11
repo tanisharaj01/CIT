@@ -1,0 +1,348 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    body {
+        background-color: #1a202c;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        height: 70vh;
+        background-image: url('../static/Assets/bg25.png');
+        background-size: 100% 100%;
+        background-position: center center;
+        background-attachment: fixed;
+    }
+
+    .fixed-header {
+        position: absolute;
+        top: 1rem;
+        left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 10;
+        margin-bottom: 2rem;
+    }
+
+    .title {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        color: wheat;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .buttons-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .slot-button {
+        padding: 0.8rem 2rem;
+        background: linear-gradient(45deg, #6b46c1, #805ad5);
+        color: #ffffff;
+        border: none;
+        border-radius: 25px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(128, 90, 213, 0.5);
+        transition: all 0.3s ease;
+    }
+
+
+
+    .slot-button:hover {
+        background: linear-gradient(45deg, #805ad5, #9f7aea);
+        color: #e9d8fd;
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 6px 8px rgba(128, 90, 213, 0.7);
+    }
+
+    .slot-button:active {
+        transform: translateY(2px) scale(0.98);
+        box-shadow: 0 2px 4px rgba(128, 90, 213, 0.5);
+    }
+
+    .lboard {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+        margin-top: 13rem;
+    }
+
+    .leaderboard {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        max-height: 60vh;
+        overflow: hidden;
+        margin: auto;
+    }
+
+    .header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background: #4a5568;
+        color: #f7fafc;
+        font-weight: bold;
+        font-size: 1.2rem;
+        border-radius: 5px;
+    }
+
+    .player-list {
+        overflow-y: auto;
+        max-height: 45vh;
+        transition: max-height 0.3s ease;
+    }
+
+    .player-list.expanded {
+        max-height: 80vh;
+    }
+
+    .player-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0.75rem;
+        padding: 0.5rem 1rem;
+        background: #2d3748;
+        border-radius: 5px;
+        color: #f7fafc;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .gold {
+        background: linear-gradient(45deg, #ffdf00, #ffd700);
+        color: #000;
+    }
+
+    .silver {
+        background: linear-gradient(45deg, #c0c0c0, #dcdcdc);
+        color: #000;
+    }
+
+    .bronze {
+        background: linear-gradient(45deg, #cd7f32, #d2691e);
+        color: #000;
+    }
+
+    .rank,
+    .player,
+    .score {
+        flex: 1;
+        text-align: center;
+    }
+
+    .see-more {
+        text-align: center;
+        margin-top: 1rem;
+        font-size: 1rem;
+        font-weight: bold;
+        color: #fbbf24;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .see-more:hover {
+        color: #ffd700;
+    }
+
+    .logo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
+    .logo a img {
+        width: 100px;
+    }
+
+    .backButton {
+        position: absolute;
+        border: 2px solid #fff;
+        font-family: moto;
+        border-radius: 1rem;
+        font-size: 1.5rem;
+        padding: 0px 10px;
+        right: 1.5%;
+        top: 2%;
+        color: #fff;
+        background-color: #0000004d;
+        text-align: center;
+    }
+
+    .backButton:hover {
+        background-color: white;
+        transform: scale(1.1);
+    }
+
+    .glowing-circle-backButton {
+        -webkit-animation: glowing 2s ease-in-out infinite alternate;
+        -moz-animation: glowing 2s ease-in-out infinite alternate;
+        animation: glowing 2s ease-in-out infinite alternate;
+    }
+    @media (max-width: 1024px) {
+        .title {
+            font-size: 1.8rem;
+        }
+
+        .slot-button {
+            font-size: 1.1rem;
+            padding: 0.8rem 1.5rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        /* .buttons-container {
+            flex-direction: column;
+            gap: 0.5rem;
+        } */
+
+        .slot-button {
+            padding: 0.7rem 1.2rem;
+            font-size: 1rem;
+        }
+
+        .leaderboard {
+            width: 90%;
+            padding: 0.8rem;
+        }
+
+        .header-row {
+            font-size: 1rem;
+            padding: 0.5rem;
+        }
+
+        .player-row {
+            font-size: 1rem;
+            padding: 0.4rem 0.8rem;
+        }
+
+        .rank, .player, .score {
+            font-size: 1rem;
+        }
+        .logo {
+        position: absolute;
+        top: 0px;
+        left: 10px;
+        }
+        .logo a img{
+            width: 70px;
+        }
+
+    }
+   
+
+    @media (max-width: 480px) {
+        .title {
+            font-size: 1.5rem;
+        }
+
+        /* .slot-button {
+            width: 90%;
+            font-size: 0.9rem;
+            padding: 0.5rem;
+        } */
+        .slot-button {
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+        }
+
+
+        /* .leaderboard {
+            width: 95%;
+        } */
+        .header-row,
+        .player-row {
+            font-size: 0.9rem;
+        }
+        /* .fixed-header{
+            top: 2rem;
+        } */
+        .title{
+            top: 2rem;
+        }
+
+        .see-more {
+            font-size: 0.9rem;
+        }
+        .logo {
+        position: absolute;
+        top: 1px;
+        left: 10px;
+        }
+        .logo a img{
+            width: 50px;
+        }
+    }
+    .lboard{
+        animation: fadeInScale 1s ease-out forwards;
+    }
+    @keyframes fadeInScale {
+        0% {
+            opacity: 0; /* Start invisible */
+            transform: scale(0.95); /* Slightly smaller */
+        }
+        100% {
+            opacity: 1; /* Fully visible */
+            transform: scale(1); /* Original size */
+        }
+    }
+
+</style>
+
+<div class="fixed-header">
+    <div class="logo">
+        <a href="{% url 'cit2020:index' %}"><img src="{% static './Assets/whiteIste.png' %}" alt=""/></a>
+    </div>
+    <a href="{% url 'cit2020:index' %}"><button type="button" class="btn backButton glowing-circle-backButton">&lt;</button></a>
+    <div class="title">🏅 LEADERBOARD 🏅</div>
+    <div class="buttons-container">
+        <a href="{% url 'cit2020:lboard' 1 %}"><button class="slot-button">Slot 1</button></a>
+        <a href="{% url 'cit2020:lboard' 2 %}"><button class="slot-button">Slot 2</button></a>
+        <a href="{% url 'cit2020:lboard' 3 %}"><button class="slot-button">Slot 3</button></a>
+        <a href="{% url 'cit2020:lboard' 4 %}"><button class="slot-button">Final Round</button></a>
+    </div>
+</div>
+
+<div class="container lboard">
+    <div class="leaderboard" id="leaderboard">
+        <div class="header-row">
+            <span class="rank">Rank</span>
+            <span class="player">Name</span>
+            <span class="score">Points</span>
+        </div>
+        <div class="player-list" id="player-list">
+            {% for player in players %}
+            <div class="player-row {% if player.rank == 1 %}gold{% elif player.rank == 2 %}silver{% elif player.rank == 3 %}bronze{% endif %}">
+                <span class="rank">{{ player.rank }}</span>
+                <span class="player">{{ player.name }}</span>
+                <span class="score">{% if slot == 4 %}{{ player.final_score }}{% else %}{{ player.score }}{% endif %}</span>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,261 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    
+  }
+
+  .submitbtn {
+    padding: 1rem 2rem;
+    top: 100px;
+    left: 50px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.25rem;
+    letter-spacing: 4px;
+    overflow: hidden;
+    border-width: 1px;
+    border-radius: 20px;
+    border-image-slice: 1;
+    background-color: #0000005c;
+    border:2px solid white;
+    font-weight: 500;
+    margin-bottom : 20px;
+    /* font-family: ethno; */
+    background-color: white;
+    color: #5b125b;
+    text-transform: uppercase;
+  }
+  
+  body {
+    /* font-family: MonsOlympia; */
+    background-color: #111344;
+  }
+
+  .outerBorder-forms {
+    position: absolute;
+    border: 2px solid #fff;
+    width: 95%;
+    top: 2.5%;
+    border-radius: 3rem;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    min-height:95%;
+    background-image: url(../static/Assets/bg25.png);
+    background-size: 100% 100%;
+  }
+
+  .opt input[type="radio"] {
+    display: none;
+  }
+  
+  .opt input[type="radio"]:checked ~ label {
+      background-color: #0012128a;
+      transition: background-color 0.4s;
+      background-color: white;
+    color: #5b125b;
+  }
+  
+  .opt label {
+    cursor: pointer;
+    font-size: 18px;
+    text-align: center;
+    width:100% ;
+    border-radius: 2rem;
+    padding: 1rem;
+  }
+
+  .outerBorder211 {
+    position: relative;
+    border: 1px solid #fff;
+    border-radius: 2rem;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: auto;
+    width: auto;
+    margin-left: 21px;
+    margin-right: 21px;
+    margin-top: 17.1354px;
+    margin-bottom: 17.1354px;
+}
+
+  .glowing-circle {
+
+    -webkit-animation: glowing 1s ease-in-out infinite alternate;
+    -moz-animation: glowing 1s ease-in-out infinite alternate;
+    animation: glowing 1s ease-in-out infinite alternate;
+  }
+
+  @keyframes glowing {
+    from {
+      box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #ffffff,
+        0 0 4px rgba(0, 0, 0, 0), 0 0 5px #ffffff,
+        0 0 6prgba (0, 0, 0, 0) F0, 0 0 7px #ffffff;
+    }
+
+    to {
+      box-shadow: 0 0 2px #ffffff, 0 0 3px #ffffff, 0 0 4px #ffffff,
+        0 0 5px #ffffff, 0 0 6px #ffffff, 0 0 7px #ffffff, 0 0 8px #ffffff;
+    }
+  }
+
+  .image-forms {
+    position: absolute;
+    width: 7rem;
+    height: auto;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .container {
+    text-align: center;
+
+  }
+
+  .main-heading-slot {
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 500;
+    color: white;
+    padding-top: 10rem;
+    margin-bottom: 5rem !important;
+    letter-spacing : 5px;
+    margin-bottom : 30px;
+    /* font-family: ethno; */
+    text-transform: uppercase;
+  }
+
+  .p1 {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 300;
+    color: white;
+    padding-top: 25px;
+    letter-spacing : 3px;
+    /* font-family:ethno; */
+  }
+  .p1:hover{
+    background-color: white;
+    color: #5b125b !important;
+  }
+  
+  
+.submitbtn:hover{
+    transform: scale(1.1);
+}
+  .rounded-corners-gradient-borders-form-Slot {
+    border: double 2px transparent;
+    border-radius: 20px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.542), rgba(0, 0, 0, 0.542)), linear-gradient(#2241cb, #0018223b);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 5px 5px rgba(0, 0, 0.2);
+  }
+
+  @media screen and (max-width: 600px) {
+
+    .image-forms {
+      position: absolute;
+      width: 5rem;
+      height: auto;
+      top: 1rem;
+      left: 2rem;
+    }
+
+    .main-heading-slot {
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 400;
+      color: white;
+      padding-top: 10rem;
+    }
+
+    .p1 {
+      font-size: 0.8rem;
+      font-style: normal;
+      font-weight: 400;
+      color: white;
+      padding-top: 25px;
+      
+    }
+
+
+    .main-heading-slot{
+      margin-bottom: 3rem !important;
+    }
+
+    .submitbtn {
+      padding: 1rem 2rem;
+      top: 50px;
+      left: 20px;
+      text-decoration: none;
+      color: white;
+      font-size: 0.6rem;
+      letter-spacing: 4px;
+      overflow: hidden;
+      border-width: 1px;
+      border-radius: 17.5px;
+      border-image-slice: 1;
+      background-color: #0000005c;
+      font-weight: 500;
+      background-color: white !important;
+      color: #5b125b;
+    }
+
+    .opt label{
+      padding: 0.2rem;
+      font-size: 0.75rem;
+    }
+  }
+</style>
+
+  <div class="outerBorder-forms glowing-circle">
+    <div class="text-center cont-forms">
+    <img class="image-forms" src="{% static './Assets/whiteIste.png'%}" />
+  </div>
+  <div class="container container-fluid">
+    <div class="slots-choose">
+      <div class="container">
+
+        <h2 class="main-heading-slot">Please Choose Your Slot  </h2>
+
+
+        <form id="slot" method="post" action="/forms/">
+          {% csrf_token %}
+          <div class="options-block slots-block">
+            <div class="opt outerBorder211">
+              <input type="radio" name="slot" value="1" id="option1" />
+              <label for="option1" class="p1">24 January 2025 (9:00 PM - 9:45 PM)</label>
+            </div>
+            <div class="opt outerBorder211">
+              <input type="radio" name="slot" value="2" id="option2" />
+              <label for="option2" class="p1">25 January 2025 (9:00 PM - 9:45 PM)</label>
+            </div>
+            <div class="opt outerBorder211">
+              <input type="radio" name="slot" value="3" id="option3" />
+              <label for="option3" class="p1">26 January 2025 (9:00 PM - 9:45 PM)</label>
+            </div>
+          </div>
+          <br> <br>
+          <div class="next-arrow-block">
+            <div class="next-arrow">
+              <input type="submit" value="Submit" class="submitbtn" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

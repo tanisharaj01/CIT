@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        overflow-y: hidden;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+        background-color: #111341;
+        background-image: url("{% static 'Assets/bg25.png' %}");
+        background-size: 100% 100%;
+    }
+
+    .finish-container {
+        background-size: cover;
+        height: 100vh;
+        padding: 20px;
+    }
+
+    .outerBorder {
+        position: fixed;
+        width: 95%;
+        height: 95%;
+        top: 2.5%;
+        left: 2.5%;
+        border-radius: 3rem;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        background-image: url(../static/Assets/bg25.png);
+        background-size: 100% 100%;
+    }
+
+    .container-1 {
+        color: #fff;
+        height: cover;
+    }
+
+    .container-fluid {
+        display: flex;
+        height: 95vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cont {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .image {
+        position: absolute;
+        width: 7rem;
+        height: auto;
+        left: 1rem;
+        top: 1rem;
+    }
+
+    .card {
+        background-color: #22254a;
+        padding: 5rem;
+        border-radius: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border: 2px solid white;
+        animation: fadeInScale 1s ease-out forwards;
+    }
+    @keyframes fadeInScale {
+    0% {
+        opacity: 0; /* Start invisible */
+        transform: scale(0.95); /* Slightly smaller */
+    }
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: scale(1); /* Original size */
+    }
+}
+    .para-1,
+    .para-2,
+    .para-3 {
+        color: white;
+        font-size: 2rem;
+        text-align: center;
+        font-weight: 400;
+        letter-spacing: 5px;
+        margin-top: 10px;
+    }
+
+    .para-2,
+    .para-3 {
+        font-size: 1.5rem;
+    }
+
+    .backButton {
+        position: absolute;
+        border: 2px solid #fff;
+        border-radius: 1rem;
+        font-size: 1.5rem;
+        padding: 0px 10px;
+        right: 4%;
+        top: 5%;
+        font-family: 'Poppins', sans-serif;
+        color: white;
+        background-color: #0000004d;
+        text-align: center;
+        z-index: 100;
+    }
+
+    .backButton:hover {
+        background-color: white;
+        transform: scale(1.1);
+    }
+
+    @media screen and (max-width: 600px) {
+        .image {
+            width: 6rem;
+        }
+
+        .para-1 {
+            font-size: 1rem;
+        }
+
+        .para-2 {
+            font-size: 0.5rem;
+        }
+
+        .para-3 {
+            font-size: 1.25rem;
+        }
+
+        .card{
+            padding: 7rem 1rem;
+        }
+    }
+</style>
+
+<div class="finish-container">
+    <a href="{% url 'cit2020:index' %}">
+        <button type="button" class="btn backButton"><</button>
+    </a>
+    <div class="bg-container">
+        <div class="container-1 outerBorder">
+            <div class="text-center cont">
+                <a href="{% url 'cit2020:index' %}">
+                    <img class="image" src="{% static './Assets/whiteIste.png'%}" />
+                </a>
+            </div>
+            <div class="container-fluid fin">
+                {% if user and not user.is_anonymous %}
+                    <div class="card">
+                        <h2 class="para-1"><strong>TEST FINISHED</strong></h2>
+                        {% if player.qualified == True %}
+                            <h2 class="para-1"><strong>Your Preliminary Round Score: <span style="color:#4ecdc4">{{player.score}}</span> <br> <br> Final Round Score: <span style="color:#4ecdc4">{{player.final_score}}</span></strong></h2>
+                            <h2 class="para-1"><strong>Visit <a style="text-decoration:none; color: #4ecdc4;" href="{% url 'cit2020:lboard' %}"> LEADERBOARD </a> for Rank</strong></h2>
+                        {% else %}
+                            <h2 class="para-1"><strong>Your Preliminary Round Score is <span style="color:#4ecdc4">{{player.score}}</span></strong></h2>
+                            <h2 class="para-1"><strong>Visit <a style="text-decoration:none; color: #4ecdc4;" href="{% url 'cit2020:lboard' slot=player.slot %}"> LEADERBOARD </a> for Rank</strong></h2>
+                        {% endif %}
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

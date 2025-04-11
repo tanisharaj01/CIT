@@ -1,0 +1,1245 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>CIT Website</title>
+<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+  body {
+  margin: 0;
+  padding: 0;
+  background: #5f185a;
+  background-color: #5f185a;
+  transition: margin-top 0.3s ease-in-out;
+}
+
+
+/* font */
+
+.poppins-regular {
+  font-family: "Poppins", serif;
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.nav-link{
+  color: rgba(255, 255, 255, 0.626);
+}
+.nav-link::selection,.nav-link:hover{
+  color: white;
+}
+
+/* ==================================================== */
+.hometext {
+  font-size: 100px;
+  line-height: 80px;
+  text-shadow: 2px 2px 5px black;
+  
+}
+#navbarSupportedContent{
+  font-size: 19px;
+}
+.navbar{
+  height: 110px;
+}
+/* .navbar-brand{
+  position: absolute;
+  top: 0px;
+} */
+.navbar-brand img{
+  width: 90px;
+}
+.card-body{
+  background-color: #222020;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+}
+.card-body h2{
+  font-size: 70px;
+}
+
+@media (min-width: 1150px) {
+  .hometext {
+    font-size: 80px;
+    line-height: 80px;
+  }
+}
+
+@media (min-width: 1050px) and (max-width: 1150px) {
+  .hometext {
+    font-size: 70px;
+    line-height: 80px;
+  }
+}
+
+@media (min-width: 950px) and (max-width: 1050px) {
+  .hometext {
+    font-size: 80px;
+    line-height: 80px;
+  }
+}
+
+@media (min-width: 850px) and (max-width: 950px) {
+  .hometext {
+    font-size: 80px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 850px) {
+  .hometext {
+    font-size: 80px;
+  }
+}
+
+@media (min-width: 676px) and (max-width: 768px) {
+  .hometext {
+    font-size: 80px;
+  }
+}
+
+/* @media (min-width: 600px) and (max-width: 650px) {
+  .hometext {
+    font-size: 80px;
+  }
+} */
+
+@media (min-width: 650px) and (max-width: 720px) {
+  .hometext {
+    font-size: 55px;
+    line-height: 60px;
+  }
+}
+
+@media (min-width: 540px) and (max-width: 650px) {
+  .hometext {
+    font-size: 60px;
+    line-height: 60px;
+  }
+}
+
+/* @media (min-width: 450px) and (max-width: 500px) {
+  .hometext {
+    font-size: 60px;
+    line-height: 60px;
+  }
+} */
+
+@media (min-width: 400px) and (max-width: 540px) {
+  .hometext {
+    font-size: 40px;
+    line-height: 60px;
+  }
+}
+
+@media (min-width: 330px) and (max-width: 400px) {
+  .hometext {
+    font-size: 40px;
+    line-height: 50px;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 330px) {
+  .hometext {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+
+.lineheigtt {
+  padding-top: 5%;
+  height: 40vh;
+}
+
+/* .register-btn {
+  background-color: #a196a7;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+  outline: none;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+} */
+
+.registerBtn {
+  background-color: white;
+  color: #5b125b;
+  margin-right: 10px;
+  border-radius: 20px;
+  
+  padding: 10px 30px;
+  text-align: center;
+  font-size: 1.5rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  
+  box-shadow: 2px 2px 5px black;
+  font-weight: bolder;
+  border-radius: 2px solid black;
+}
+
+.register-btn:hover {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  /* Box shadow on hover */
+  transform: scale(1.05);
+  /* Slightly increase size on hover */
+  opacity: 0.7;
+}
+
+.even{
+  background-color: #5f185a;
+  color:white;
+}
+
+/* ---------------------------------- about section ---------------------------------- */
+.aboutContainer {
+  height: fit-content;
+  background-image: url("../static/Assets/aboutbg.jpg");
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-position: center;
+  object-fit: fill;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: lighter;
+}
+
+/*---------------------------------- DotBg section ---------------------------------- */
+
+.dotsBg img {
+  width: 100vw;
+  min-width: 100vw;
+  padding: 0;
+}
+
+/*---------------------------------- sponsor section ---------------------------------- */
+
+.sponsorContainer {
+  color: white;
+  text-align: center;
+}
+.sponsorOuterContainer {
+  background-color: rgb(0, 0, 0);
+  padding: 100px;
+  min-width: 100%;
+  height: auto;
+}
+
+.eventSponsorHeading {
+  font-size: 50px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Playfair Display", serif;
+  color:white;
+  text-shadow: 2px 2px 10px wheat;
+}
+
+@media only screen and (max-width: 700px) {
+  .sponsorImages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .sponsorimage1 {
+    margin-bottom: 10%;
+  }
+  .sponsorOuterContainer{
+    padding: 40px;
+  }
+}
+
+
+
+
+
+  
+
+/---------------------------------- FAQ Section ------------------------------------------------------/
+.contain{
+  /* background-image: url("faq.png"); */
+  background-repeat: repeat-x;
+  min-width:100%;
+  height:70vh;
+}
+.heading{
+  font-size: 50px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Playfair Display", serif;
+  color:#111344;
+  text-shadow: 2px 2px 10px black;
+  
+  
+}
+.FAQTitleContainer {
+  background-color: #dccdc8;
+  height: auto;
+}
+
+.FAQBodycontainer {
+  background-color: #dbcec8;
+  min-height: 100%;
+  min-width: 100vw;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: 'Poppins', sans-serif;;
+}
+
+.container2 {
+  height: auto;
+  min-width: 100%;
+  /* padding: 30px; */
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.colDesign {
+  background-color: #d8b4b4;
+
+  color: black;
+  font-weight: 900;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Playfair Display", serif;
+  margin: 20px;
+  height: auto;
+  width: 80vw;
+  border-radius: 1rem;
+  box-shadow: inset 0 -2em 2em rgba(188, 206, 188, 0.3),
+    0 0 0 0.2px rgb(226, 195, 195), 0.3em 0.3em 1em rgba(170, 162, 162, 0.6);
+  border: 0.3px solid rgb(107, 100, 100);
+}
+
+.colDesign:hover {
+  scale: 1.01;
+  transition-duration: 500ms;
+  transition: ease-in-out;
+  background-color: #c9abab;
+  cursor: default;
+}
+
+/-------------------- after prizes design ================/
+.columnDesign {
+  width: 100vw;
+  height: 5vh;
+  background: #111344;
+  display: flex;
+}
+
+@media only screen and (max-width: 700px) {
+  .columnDesign {
+    height: 2.5vh;
+  }
+}
+
+/* ---------------------------------- contact section ---------------------------------- */
+
+.ContactOutercontainer {
+  min-width: 100%;
+  height: auto;
+  background-color: #dccdc8;
+}
+
+/* ############################## styles by gopeshwar ################################### */
+/* ---------------------------------- schedule section ---------------------------------- */
+
+@media only screen and (max-width: 900px) {
+  /* div[style*="flex: 1"] {
+      flex: 1 0 100%;
+      max-width: 100%;
+    } */
+
+  .h1tag {
+    font-size: 1.8rem;
+  }
+
+  .abcs {
+    font-size: 1rem;
+  }
+}
+
+/* Media Queries for Mobile and Tablet Responsiveness */
+@media (min-width: 1150px) {
+  .schedulewithmonkey {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1;
+  }
+}
+
+@media (min-width: 1050px) and (max-width: 1150px) {
+  .schedulewithmonkey {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1;
+  }
+}
+
+@media (min-width: 950px) and (max-width: 1050px) {
+  .schedulewithmonkey {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1;
+  }
+}
+
+@media (min-width: 850px) and (max-width: 950px) {
+  .schedulewithmonkey {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 850px) {
+  .schedulewithmonkey {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1;
+  }
+}
+
+@media (min-width: 676px) and (max-width: 768px) {
+  .schedulewithmonkey {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 650px) {
+}
+
+@media (min-width: 650px) and (max-width: 720px) {
+}
+
+@media (min-width: 500px) and (max-width: 600px) {
+  /* .sheduleimage{
+          display: none;
+        } */
+}
+.aboutContainer{
+  height: 120vh !important;
+}
+@media (min-width: 769px) and (max-width: 1033px) {
+  .aboutContainer{
+    height: 140vh !important;
+  }
+}
+@media (min-width: 767px) and (max-width: 828px) {
+  .aboutContainer{
+    height: 160vh !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .lead{
+    font-size: 18px;
+    margin-top: 20px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .card-body h2{
+  font-size: 50px;
+}
+}
+
+@media (max-width: 370px) {
+}
+
+.schedulewithmonkey {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 1;
+  gap: 10px;
+  padding: 10px;
+}
+
+/* ---------------------------------- prizes ----------------------------------*/
+
+.PrizeOutercontainer {
+  background-image: url("../static/Assets/prizesbg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-size: 100% 100%;
+  min-width: 100vw;
+  height: 100vh;
+  padding: 0;
+}
+
+@media only screen and (max-width: 700px) {
+  .PrizeOutercontainer {
+    height: 50vh;
+  }
+}
+
+.prizeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.display-5 {
+  font-size: 3rem;
+}
+
+.fw-bold {
+  font-weight: bold;
+}
+
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  .display-5 {
+    font-size: 2.5rem;
+  }
+  .lead{
+    font-size: 19px;
+    margin-top: 20px;
+  }
+  .card-body h2{
+  font-size: 60px;
+}
+}
+
+@media (max-width: 576px) {
+  .display-5 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .display-5 {
+    font-size: 1.6rem;
+  }
+}
+.responsive-container{
+  display: flex;flex-direction: row; justify-content: center; align-items: center;align-self: center; margin-top: 3%;width: 100vw;
+} 
+/* Mobile Responsiveness */
+  @media (max-width: 825px) {
+    .responsive-container {
+      flex-direction: column; /* Stack buttons vertically on smaller screens */
+      margin-top: 5%;
+    }
+    .responsive-container div{
+      margin-bottom: 20px;
+    }
+    .hero-btn {
+      font-size: 0.9rem; /* Slightly smaller text for mobile */
+      width: 200px; /* Full width with some padding */
+    }
+    .lineheigtt{
+      height: auto;
+    }
+    .navbar-brand img{
+      width: 60px;
+    }
+    .navbar{
+      height: 80px;
+    }
+  }
+
+  .sheduleimagee {
+    max-width: 100%;
+    height: 40vh;
+  }
+
+  @media (max-width: 1000px) {
+    .sheduleimagee {
+      height: 23vh;
+    }
+  }
+
+  
+
+    /* .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #5F185A;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    } */
+
+    .navbar .logo a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .navbar img {
+      width: 150px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links li {
+      margin: 0 15px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #d4c2fc;
+    }
+
+    /* Hamburger Menu */
+    /* .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 30px;
+      height: 4px;
+      margin: 5px 0;
+      background-color: white;
+    } */
+
+    /* Media Queries for responsiveness */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #5F185A;
+        margin-top: 10px;
+        padding: 15px 0;
+        transform: translateY(-100%); /* Initially hidden */
+        opacity: 0; /* Initially hidden */
+      }
+
+      .nav-links.active {
+        transform: translateY(0); /* Show the navbar with smooth transition */
+        opacity: 1; /* Fade in */
+      }
+
+      .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      /* .hamburger {
+        display: flex;
+      } */
+
+      /* Adjust content when menu is active */
+      body.menu-open {
+        margin-top: 100px; /* Adjust this value based on your navbar height */
+      }
+    }
+
+.fab,.fas{
+  color: #222020;
+}
+
+nav {
+  background: #5F185A; /* Custom background color */
+  height: 80px;
+  width: 100%;
+}
+label.logo {
+  color: white;
+  font-size: 25px;
+  line-height: 80px;
+  padding: 10px;
+  font-weight: bold;
+}
+nav ul {
+  float: right;
+  margin-right: 20px;
+  z-index: 1000;
+}
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a {
+  color: white;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+a.active,
+a:hover {
+  transition: .5s;
+  background-color: white;
+  color: #5F185A;
+}
+.checkbtn {
+  font-size: 22px;
+  color: white !important;
+  float: right;
+  line-height: 80px;
+  margin-right: 30px;
+  cursor: pointer;
+  display: none;
+}
+#check {
+  display: none;
+}
+.logo img{
+  width: 100px;
+}
+/* Adjustments for medium and large screens */
+@media (max-width: 1050px) {
+  label.logo {
+    padding-left: 10px;
+  }
+  nav ul li a {
+    font-size: 16px;
+  }
+}
+
+/* Responsive media query for smaller screens */
+@media (max-width: 890px) {
+  .checkbtn {
+    display: block;
+  }
+  label.logo {
+    font-size: 22px;
+  }
+  ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #5F185A;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+  }
+  nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a {
+    font-size: 20px;
+  }
+  a:hover,
+  a.active {
+    background-color: white;
+  color: #5F185A;
+  }
+  #check:checked~ul {
+    left: 0;
+  }
+  .logo img{
+  width: 70px;
+}
+}
+  .fa-bars{
+    color: white !important;
+  }
+  body.menu-open {
+  overflow: hidden; /* Prevent scrolling */
+}
+.hometext{
+  font-family: "Poppins", serif;
+  font-family: "Playfair Display", serif;
+  font-weight: 800;
+  font-style: normal;
+  font-family: "Cinzel", serif;
+}
+
+</style>
+<nav>
+  <!-- Checkbox for toggling menu -->
+  <input type="checkbox" id="check">
+  <!-- Menu icon -->
+  <label for="check" class="checkbtn">
+    <i class="fas fa-bars"></i>
+  </label>
+  <!-- Site logo -->
+  <label class="logo"><img src="{% static 'Assets/whiteIste.png' %}" alt="iste-logo"></label>
+  <!-- Navigation links -->
+  <ul>
+    <li><a class="active" href="#">Home</a></li>
+    <li><a href="#About">About</a></li>
+    <li><a href="#Schedule">Instructions</a></li>
+    <li><a href="#FAQ">FAQ</a></li>
+    <li><a href="#Sponsor">Sponsors</a></li>
+    <li><a href="#Contact">Contact Us</a></li>
+  </ul>
+</nav>
+<section>
+  <div class="mainhomepage" style="margin: 0; width: 100vw; background-color: #5F185A;">
+  </div>
+</section>
+
+
+  <div class="lineheigtt">
+    <p class="hometext" style="text-align: center; color: rgb(255, 255, 255); letter-spacing: 5px; ">
+      COGNITIVE INTELLIGENCE<br />TEST 8.0
+    </p>
+  </div>
+    {% if user.is_anonymous %}
+    <div class="responsive-container">
+      <div>
+        <button class="hero-btn odd register-btn  registerBtn" onclick="window.location='{% url 'social:begin' 'google-oauth2' %}';">Register</button>
+      </div>
+    </div>
+    {% endif %} 
+
+    {% if user and not user.is_anonymous %}
+    <div class="responsive-container">
+        <div>
+          <button class="hero-btn odd register-btn  registerBtn"  id="demo" onclick="window.location='{% url 'cit2020:quiz' %}';">Start</button>
+        </div>
+        {% if user.is_authenticated %}
+        <div>
+          <button class="hero-btn even register-btn  registerBtn" id="demo" onclick="window.location='{% url 'cit2020:rules' %}';">Rules</button>
+        </div>
+        
+        {% if user.is_authenticated %}
+        <div>
+          <button class="hero-btn odd register-btn  registerBtn" id="demo" onclick="window.location='{% url 'cit2020:lboard' %}';">Leaderboard</button>
+        </div>
+        {% if user.is_authenticated %}
+        <div>
+          <button class="hero-btn even register-btn  registerBtn" id="demo" onclick="window.location='{% url 'cit2020:view_profile' %}';">View Profile</button>
+        </div>
+        
+        {% if user.is_authenticated %}
+        <div>
+          <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="start odd navButton logoutBtn hero-btn register-btn  registerBtn" type="submit">Log Out</button>
+          </form>
+        </div>
+    {% endif %}
+    {% endif %}
+    {% endif %}
+    {% endif %}
+    {% endif %}
+    </div>
+
+  <div style="background: #5F185A; position:relative ; top: 40px; display: flex; flex-direction: column;">
+    <div style="width: 100vw; height: 8vh; background: yellow;  display: flex; ">
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #5F185A; color: white;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background:#5F185A; color: white;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background:#5F185A; color: white;"></div>
+      <div style="width: 10vw; background: #5F185A; color: white;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background:#5F185A; color: white;"></div>
+    </div>
+
+    <div style="width: 100vw; height: 8vh; background: #5F185A; display: flex; ">
+      <div style="width: 10vw; background:#5F185A; color: white;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background:#5F185A; color: white;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background:#5F185A;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+    </div>
+
+    <div style="width: 100vw; height: 8vh; background: #5F185A; display: flex; ">
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background:#5F185A; color: white;"></div>
+      <div style="width: 10vw; background:#5F185A; color: white;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background:#DCCDC8; color: white;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- About Section -->
+
+<div class="outeraboutcontainer poppins-regular fade-left scroll-animate" id="About" >
+  <div class="container-fluid d-flex flex-column justify-content-center align-items-center vh-100 p-3 aboutContainer">
+    <div class="row w-100">
+      <div class="col-md-1"></div>
+      <div class="col-md-5 d-flex justify-content-center align-items-center">
+        <div class="container my-5 Abouttextbox" id="About">
+          <div class="card-body text-center">
+            <h2 class="mb-4">
+              ABOUT <br>
+              <b>CIT 8.0</b>
+            </h2>
+          </div>
+          <p class="lead" style="font-family: 'Poppins', sans-serif;">
+            CIT 8.0 is a one-of-a-kind opportunity for all aspiring students
+            as we unveil exhilarating challenges of national standard over
+            the realms of basic mathematical aptitude, logical and verbal
+            reasoning, and data interpretation. Not only does CIT instill an
+            idea of various acclaimed aptitude tests like CAT, but our
+            flagship event also never fails to provide a simulation of the
+            overall screening procedure of hiring companies. This is the
+            most anticipated online event to compete for intellectual glory
+            among a multitude of striving contestants
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6"></div>
+    </div>
+  </div>
+
+  <!-- Schedule Section -->
+
+  <div class="poppins-regular" style="width: 100%; min-width: 100vw; background-color: #dccdc8; height: auto; font-family: 'Poppins', sans-serif;"
+    id="Schedule">
+    <div
+      style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: 100%; color: black;">
+      <div class="schedulewithmonkey">
+
+        <div style="display: flex; align-items: center; justify-content: center;">
+          <img src="{% static 'Assets/man1.jpg' %}" alt="coding-man"
+            class="sheduleimagee" />
+        </div>
+
+        <div class="fade-left">
+          <h1 class="h1tag text-center" style="font-size: 3rem;padding: 15px; color: white; text-align: center; margin-bottom: 1.5rem; background-color: #111344; border-radius: 5px;">
+            SCHEDULE <br /> FOR <br /><b>CIT 8.0</b>
+          </h1>
+          <div
+            style="width: 100%; display: flex; justify-content: center; flex-direction: column; justify-self: center; align-items: center;">
+            <p class="abcs" style="font-weight: bold; text-transform: uppercase;">Preliminary Round:</p>
+            <div>
+              <p style="padding: 5px;">
+                Candidates can attempt CIT only once in any of the three available slots: <br>
+                Slot 1: January 24, 2025 (9:00 PM - 9:45 PM) <br>
+                Slot 2: January 25, 2025 (9:00 PM - 9:45 PM) <br>
+                Slot 3: January 26, 2025 (9:00 PM - 9:45 PM) <br>
+                <!-- <ul>
+                  <li>Slot 1: January 24, 2025 (9:00 PM - 9:45 PM)</li>
+                  <li>Slot 2: January 25, 2025 (9:00 PM - 9:45 PM)</li>
+                  <li>Slot 3: January 26, 2025 (9:00 PM - 9:45 PM)</li>
+                </ul> -->
+              </p>
+             
+            </div>
+
+            <div >
+             
+              <p style="padding: 5px;">  Candidates selected for the final round will receive a mail with details. <br> Qualified for the final round will be announced on Jan 27, 2025 (10:00 AM) <br>
+              <strong style="text-transform: uppercase;">Final Round :</strong> January 27, 2025 (9:00 PM - 9:45 PM)</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dotsBg">
+    <image src="../static/Assets/dotsBg.png" />
+  </div>
+
+  <!-- Prizes Section -->
+
+  <div class="PrizeOutercontainer" id="Prizes">
+    <div class="prizeContainer">
+      <div class="text-center">
+        <h1 class="display-5 fw-bold" style="color: white;">
+          Win Cash PRIZES <br />
+          worth <b>8K</b> For <br />
+          <b>CIT 8.0</b>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: #111344; bottom: 0; display: flex; flex-direction: column;">
+    <div class="columnDesign">
+      <div style="width: 10vw; background: #111344; color: white;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #111344; color: white;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #111344; color: white;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #111344; color: white;"></div>
+      <div style="width: 10vw; background: #111344; color: white;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #111344; color: white;"></div>
+    </div>
+
+    <div class="columnDesign">
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #111344; color: white;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #111344;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+    </div>
+
+    <div class="columnDesign">
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #111344; color: white;"></div>
+      <div style="width: 10vw; background: #111344; color: white;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+      <div style="width: 10vw; background: #DCCDC8; color: white;"></div>
+    </div>
+  </div>
+
+
+  <!-- FAQ Section -->
+
+  <div
+    class="container-fluid d-flex flex-column justify-content-center align-items-center p-3 FAQTitleContainer contain "
+    id="FAQ">
+    <div class="text-center mb-5">
+      <h1 class="heading">
+        FREQUENTLY <b>ASKED</b> <br /> QUESTIONS
+      </h1>
+    </div>
+  </div>
+
+  <div class="text-center FAQBodycontainer">
+   
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 container2 accordion poppins-regular" id="accordionExample">
+      <div class="col colDesign">
+        <div class="p-3">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                What is CIT?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+          
+                CIT is <strong>ISTE NIT Durgapur's</strong>  flagship event, a CAT-like online competition to test aptitude and reasoning.
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col colDesign">
+        <div class="p-3">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Who can participate?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Any student from any institution can take part.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col colDesign">
+        <div class="p-3">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Where will the test happen?
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                The test will be online on the  <strong> <code><a href="https://cit.istenitdgp.com/">official CIT website</a></code> </strong>.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col colDesign">
+        <div class="p-3">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                How is the competition structured?
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                There’s a qualifier round, and only those who qualify can appear in the final round.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col colDesign">
+        <div class="p-3">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              Are there prizes or certificates?
+              </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Yes, all participants get certificates, and winner, runner up will receive exciting prizes
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col colDesign">
+        <div class="p-3">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSix">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                What is the test format?
+              </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                The test includes MCQs on aptitude, reasoning, and problem-solving.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col colDesign">
+        <div class="p-3">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSeven">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                Is there any fee to take this test?
+              </button>
+            </h2>
+            <div id="collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                No, it is completely free of cost.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+  <!-- dot bg background -->
+
+  <div class="dotsBg">
+    <image src="../static/Assets/dotsBg.png" />
+  </div>
+  <!-- sponsor Section -->
+
+  <div class="sponsorOuterContainer" id="Sponsor">
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center sponsorContainer">
+      <h2 class="eventSponsorHeading">Event Sponsors</h2>
+      <div class="d-flex justify-content-center mt-4 sponsorImages">
+        <div class="sponsorimage1"> <img src="../static/Assets/ims.png" alt="ims" class="mx-3" style="max-height: 100px;" /></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- contact us -->
+  <div class="container-fluid d-flex flex-column justify-content-center align-items-center py-5 ContactOutercontainer"
+    id="Contact">
+    <div class="text-center mb-4">
+      <h1>Contact Us:</h1>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="mx-3">
+        <a href="https://www.facebook.com/istenitdgp"><i class="fab fa-facebook-square" style="font-size: 40px;"></i></a>
+      </div>
+      <div class="mx-3">
+        <a href="https://www.instagram.com/istenitdgp?igsh=NHpjeTZvaWtod2Vk"><i class="fab fa-instagram" style="font-size: 40px;"></i></a>
+      </div>
+      <div class="mx-3">
+        <a href="https://www.linkedin.com/company/istenitdgp/"><i class="fab fa-linkedin" style="font-size: 40px;"></i></a>
+      </div>
+      <div class="mx-3">
+        <a href="mailto:istenitdurgapur@gmail.com"><i class="fas fa-envelope" style="font-size: 40px;"></i></a>
+      </div>
+    </div>
+    <div class="poppins-regular" style=" font-family:'Poppins',serif; font-weight: 400;" ><br> Made with ❤️ by Webd Team @ISTE <br> copyright ©2025 ISTE NIT Durgapur</div>
+  </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+
+
+const navLinks = document.querySelectorAll('nav ul li a');
+    const checkBox = document.getElementById('check');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        if (checkBox.checked) {
+          checkBox.checked = false; // Collapse the navbar
+          body.style.overflow = '';
+        }
+      });
+    });
+    const body = document.body;
+
+// Event listener for when the checkbox is checked or unchecked
+checkBox.addEventListener('change', function() {
+  if (checkBox.checked) {
+    // Disable scrolling when the menu is open
+    body.style.overflow = 'hidden';
+  } else {
+    // Enable scrolling when the menu is closed
+    body.style.overflow = '';
+  }
+});
+   
+
+
+
+  
+  </script>
+  
+
+  
+
+
+{% endblock %}

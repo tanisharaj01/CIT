@@ -1,0 +1,244 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load widget_tweaks %}
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        letter-spacing: 1px;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #111344;
+        color: #fff;
+        overflow-x: hidden;
+        background-image: url("{% static 'Assets/bg25.png' %}");
+        background-size: 100% 100%;
+        height: 100vh;
+        overflow-y: auto; /* Enable scrolling on the body */
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .home-logo {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        height: auto;
+        width: 100px;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .outerBorder-viewProfile {
+        position: relative;
+        width: 95%;
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 2rem;
+        border-radius: 20px;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease-in-out;
+        height: auto; /* Set height to auto to allow scrolling */
+        max-height: 80vh; /* Limit max height */
+        overflow-y: auto; /* Enable vertical scrolling if content overflows */
+        animation: fadeInScale 1s ease-out forwards;
+    }
+    @keyframes fadeInScale {
+        0% {
+            opacity: 0; /* Start invisible */
+            transform: scale(0.95); /* Slightly smaller */
+        }
+        100% {
+            opacity: 1; /* Fully visible */
+            transform: scale(1); /* Original size */
+        }
+    }
+
+    .backButton {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        border: 2px solid #fff;
+        border-radius: 1rem;
+        font-size: 1.5rem;
+        padding: 5px 15px;
+        color: white;
+        background-color: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .backButton:hover {
+        background-color: white;
+        color: #111344;
+        transform: scale(1.1);
+    }
+
+    .txtOnImage {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        text-align: center;
+        color: #f9f9f9;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+
+    .container {
+        padding: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+        width: 100%; /* Make sure the container takes full width */
+    }
+
+    .container h4 {
+        font-size: 1.1rem;
+        font-weight: 400;
+        margin: 10px 0;
+        line-height: 1.5;
+    }
+
+    .container strong {
+        color: #f9d342;
+        font-weight: 600;
+    }
+
+    .glowing-border {
+        position: relative;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        padding: 1rem;
+        margin: 1rem 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Glowing border animation for smaller screens */
+    @media only screen and (max-width: 768px) {
+        .glowing-border {
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.2);
+            }
+            to {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        .backButton {
+            font-size: 1.2rem;
+            padding: 5px 10px;
+        }
+
+        .txtOnImage {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .outerBorder-viewProfile {
+            padding: 1rem;
+            margin: 1rem auto;
+            max-width: 90%;
+        }
+
+        .home-logo {
+            height: auto;
+            width: 80px;
+        }
+    }
+
+    @media only screen and (max-width: 576px) {
+        .outerBorder-viewProfile {
+            padding: 0.8rem;
+        }
+
+        .txtOnImage {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .backButton {
+            font-size: 1.1rem;
+            top: 0.5rem;
+            right: 0.5rem;
+        }
+
+        .home-logo {
+            height: 70px;
+            width: 70px;
+        }
+    }
+</style>
+
+<!-- Home Logo on the Body -->
+<a href="{% url 'cit2020:index' %}">
+    <img src="{% static 'Assets/whiteIste.png' %}" alt="Home" class="home-logo">
+</a>
+
+<div class="view-profile outerBorder-viewProfile">
+    <a href="{% url 'cit2020:index' %}">
+        <button type="button" class="btn backButton"><</button>
+    </a>
+    <div class="txtOnImage">Profile</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-6 mb-2">
+                <h4><strong>Name:</strong> {{ player.name }}</h4>
+                <h4><strong>UserName:</strong> {{ player.userName }}</h4>
+                <h4><strong>Email Id:</strong> {{ player.email }}</h4>
+                <h4><strong>Mobile No:</strong> {{ player.mobile }}</h4>
+                <h4><strong>School/College:</strong> {{ player.institute_name }}</h4>
+                <h4><strong>Year of Study:</strong> {{ player.year_of_study }}</h4>
+                <h4><strong>Department:</strong> {{ player.department }}</h4>
+            </div>
+            <div class="col-md-12 col-lg-6 mb-2">
+                <div class="glowing-border">
+                    {% if player.slot == 0 %}
+                    <h3><strong>Preliminary Round</strong> Select 
+                        <a href="{% url 'cit2020:index' %}"><strong>Slot</strong></a>
+                    </h3>
+                    {% else %}
+                    <h3><strong>Preliminary Round</strong></h3>
+                    <h4><strong style="color:wheat;">Slot:</strong>
+                        {% if player.slot == 1 %} (1) Jan 24, 2025 (9:00 PM - 9:45 PM)
+                        {% elif player.slot == 2 %} (2) Jan 25, 2025 (9:00 PM - 9:45 PM)
+                        {% elif player.slot == 3 %} (3) Jan 26, 2025 (9:00 PM - 9:45 PM)
+                        {% endif %}
+                    </h4>
+                    <h4><strong style="color:wheat;">Score:</strong> {{ player.score }}</h4>
+                    {% if final == False %}
+                    <h4><strong style="color:wheat;">Selected for Final:</strong> --</h4>
+                    {% elif player.qualified == True %}
+                    <h4><strong style="color:wheat;">Selected for Final:</strong> Yes</h4>
+                    {% else %}
+                    <h4><strong style="color:wheat;">Selected for Final:</strong> No</h4>
+                    {% endif %}
+                    {% if player.qualified == True %}
+                    <h3><strong style="color:wheat;">Final Round:</strong></h3>
+                    <h4><strong style="color:wheat;">Slot:</strong> Jan 27, 2025 (9:00 PM - 9:45 PM)</h4>
+                    <h4><strong style="color:wheat;">Score:</strong> {{ player.final_score }}</h4>
+                    {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
