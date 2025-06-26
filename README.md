@@ -1,4 +1,4 @@
- Cognitive Intelligence Test (CIT) 8.0 Website 
+![image](https://github.com/user-attachments/assets/c54e4ffd-58cb-41c2-854d-1108d9b3a653)![image](https://github.com/user-attachments/assets/c54e4ffd-58cb-41c2-854d-1108d9b3a653) Cognitive Intelligence Test (CIT) 8.0 Website 
 
 
 Description
@@ -9,3 +9,5 @@ Tech Stacks Used-
 * HTML/CSS: Front-end technologies for building the user interface.
 * JavaScript: Used for dynamic and interactive elements on the website.
 * SQLite: A lightweight, file-based relational database for storing application data.
+
+click https://cit.istenitdgp.com/ to see the website
