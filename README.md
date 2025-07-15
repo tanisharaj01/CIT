@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/c54e4ffd-58cb-41c2-854d-1108d9b3a653)![image](https://github.com/user-attachments/assets/c54e4ffd-58cb-41c2-854d-1108d9b3a653) Cognitive Intelligence Test (CIT) 8.0 Website 
+ Cognitive Intelligence Test (CIT) 8.0 Website 
 
 
 Description
