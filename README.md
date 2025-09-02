@@ -29,5 +29,22 @@ cd CIT-8.0
 ### 2. Install dependencies
 ```bash
 pip install -r requirements.txt
+```
+### 3. Apply Migrations
+```bash
+python manage.py migrate
+```
+### 4. Create a Superuser (Optional)
+```bash
+python manage.py createsuperuser
+```
+### 5. Run the Development Server
+```bash
+python manage.py runserver
+```
+### 6. Access the Website
 
+Open your browser and go to: http://127.0.0.1:8000/
+
+Admin Panel (if superuser created): http://127.0.0.1:8000/admin/
 
