@@ -12,30 +12,17 @@ Tech Stacks Used-
 
 
 
-Getting Started
-To run the CIT 8.0 website locally, follow these steps:
+# CIT 8.0 Website
 
-Clone the Repository:
+Welcome to the **CIT 8.0 Website** repository! 🎉  
+Follow the steps below to set up and run the project locally.
 
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+```bash
 git clone https://github.com/your-username/CIT-8.0.git
 cd CIT-8.0
-Install Dependencies:
 
-pip install -r requirements.txt
-Apply Migrations:
-
-python manage.py migrate
-Create Superuser (Optional):
-
-python manage.py createsuperuser
-Run the Development Server:
-
-python manage.py runserver
-Access the Website: Open your web browser and navigate to http://127.0.0.1:8000/
-
-Admin Panel: If you created a superuser, you can access the admin panel at http://127.0.0.1:8000/admin/ to manage data.
-
-Contributing
-We welcome contributions from the community. If you find any issues or have suggestions for improvements, please create a pull request or open an issue.
-
-Happy coding and best of luck to all participants in the CIT 8.0!
