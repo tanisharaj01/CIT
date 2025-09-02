@@ -15,11 +15,11 @@ Tech Stacks Used-
 * SQLite: A lightweight, file-based relational database for storing application data.
 
 
-
+## Getting Started
 Follow the steps below to set up and run the project locally.
 ---
 
-## 🚀 Getting Started
+
 
 ### 1. Clone the Repository
 ```bash
