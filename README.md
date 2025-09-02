@@ -25,7 +25,8 @@ Follow the steps below to set up and run the project locally.
 ```bash
 git clone https://github.com/your-username/CIT-8.0.git
 cd CIT-8.0
-
+```
 ### 2. Install dependencies
 pip install -r requirements.txt
+
 
